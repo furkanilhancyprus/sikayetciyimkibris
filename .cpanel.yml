@@ -1,0 +1,4 @@
+---
+deployment:
+  tasks:
+    - /bin/echo "Sikayetciyim Kibris repository pulled. Run composer/artisan setup from cPanel after .env is configured."
