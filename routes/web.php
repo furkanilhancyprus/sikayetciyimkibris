@@ -4,6 +4,7 @@ use App\Http\Controllers\CorruptionReportController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CitizenAuthController;
 use App\Http\Controllers\EvidenceFileController;
+use App\Http\Controllers\FacebookAutomationCronController;
 use App\Http\Controllers\OrganizationPortalController;
 use App\Http\Controllers\OrganizationInvitationController;
 use App\Http\Controllers\PasswordResetController;
@@ -11,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CorruptionReportController::class, 'home'])->name('home');
 Route::get('/sitemap.xml', [CorruptionReportController::class, 'sitemap'])->name('sitemap');
+Route::get('/facebook-automation/cron', FacebookAutomationCronController::class)
+    ->middleware('throttle:6,1')
+    ->name('facebook-automation.cron');
 Route::view('/guvenlik-ve-gizlilik', 'pages.privacy')->name('privacy');
 Route::redirect('/admin.php', '/admin');
 Route::redirect('/login', '/giris')->name('login');

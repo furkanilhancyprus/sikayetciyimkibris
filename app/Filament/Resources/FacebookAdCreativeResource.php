@@ -20,11 +20,11 @@ class FacebookAdCreativeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-megaphone';
 
-    protected static ?string $navigationLabel = 'Facebook Reklamları';
+    protected static ?string $navigationLabel = 'Facebook Reklamlari';
 
-    protected static ?string $modelLabel = 'Facebook reklamı';
+    protected static ?string $modelLabel = 'Facebook reklami';
 
-    protected static ?string $pluralModelLabel = 'Facebook reklamları';
+    protected static ?string $pluralModelLabel = 'Facebook reklamlari';
 
     protected static ?string $navigationGroup = 'Reklam Otomasyonu';
 
@@ -40,12 +40,12 @@ class FacebookAdCreativeResource extends Resource
                 ->label('Aktif')
                 ->default(true),
             TextInput::make('name')
-                ->label('Reklam adı')
+                ->label('Reklam adi')
                 ->required()
                 ->maxLength(160),
             Textarea::make('comment_text')
                 ->label('Yorum metni')
-                ->helperText('Facebook postunun altına yazılacak metin. Aynı metni sürekli kullanmamak için birden fazla reklam oluştur.')
+                ->helperText('Facebook postunun altina yazilacak metin. Ayni metni surekli kullanmamak icin birden fazla reklam olustur.')
                 ->required()
                 ->rows(6)
                 ->maxLength(2000)
@@ -55,12 +55,12 @@ class FacebookAdCreativeResource extends Resource
                 ->url()
                 ->maxLength(500),
             TextInput::make('image_url')
-                ->label('Görsel URL')
+                ->label('Gorsel URL')
                 ->url()
-                ->helperText('Facebook yorum API desteği ve izin durumuna göre ileride kullanılacak. Şimdilik reklam kaydı için saklanır.')
+                ->helperText('Facebook yorum API destegi ve izin durumuna gore ileride kullanilacak. Simdilik reklam kaydi icin saklanir.')
                 ->maxLength(500),
             TextInput::make('weight')
-                ->label('Ağırlık')
+                ->label('Agirlik')
                 ->numeric()
                 ->minValue(1)
                 ->default(1)
@@ -76,8 +76,8 @@ class FacebookAdCreativeResource extends Resource
                 TextColumn::make('name')->label('Ad')->searchable(),
                 TextColumn::make('comment_text')->label('Metin')->limit(70)->searchable(),
                 TextColumn::make('target_url')->label('Link')->limit(32),
-                TextColumn::make('weight')->label('Ağırlık')->sortable(),
-                TextColumn::make('last_used_at')->label('Son kullanım')->since()->placeholder('-'),
+                TextColumn::make('weight')->label('Agirlik')->sortable(),
+                TextColumn::make('last_used_at')->label('Son kullanim')->since()->placeholder('-'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

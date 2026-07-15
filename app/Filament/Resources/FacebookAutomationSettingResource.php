@@ -20,11 +20,11 @@ class FacebookAutomationSettingResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
-    protected static ?string $navigationLabel = 'Facebook Ayarları';
+    protected static ?string $navigationLabel = 'Facebook Ayarlari';
 
-    protected static ?string $modelLabel = 'Facebook otomasyon ayarı';
+    protected static ?string $modelLabel = 'Facebook otomasyon ayari';
 
-    protected static ?string $pluralModelLabel = 'Facebook otomasyon ayarları';
+    protected static ?string $pluralModelLabel = 'Facebook otomasyon ayarlari';
 
     protected static ?string $navigationGroup = 'Reklam Otomasyonu';
 
@@ -48,19 +48,19 @@ class FacebookAutomationSettingResource extends Resource
         return $form->schema([
             Toggle::make('is_enabled')
                 ->label('Otomasyon aktif')
-                ->helperText('Meta API tokenları bağlanmadan aktif edilmemeli.'),
+                ->helperText('Meta API tokenlari baglanmadan aktif edilmemeli.'),
             Toggle::make('approval_required')
-                ->label('Yorumlar önce onaya düşsün')
-                ->helperText('Açık kalması önerilir.'),
+                ->label('Yorumlar once onaya dussun')
+                ->helperText('Acik kalmasi onerilir.'),
             TextInput::make('page_name')
-                ->label('Facebook sayfa adı')
+                ->label('Facebook sayfa adi')
                 ->required()
                 ->maxLength(160),
             TextInput::make('page_id')
                 ->label('Facebook Page ID')
                 ->maxLength(80),
             TextInput::make('check_interval_minutes')
-                ->label('Post kontrol aralığı dakika')
+                ->label('Post kontrol araligi dakika')
                 ->numeric()
                 ->minValue(5)
                 ->required(),
@@ -80,12 +80,12 @@ class FacebookAutomationSettingResource extends Resource
                 ->minValue(1)
                 ->required(),
             TextInput::make('max_comments_per_day')
-                ->label('Günlük yorum limiti')
+                ->label('Gunluk yorum limiti')
                 ->numeric()
                 ->minValue(1)
                 ->required(),
             TextInput::make('same_creative_cooldown_hours')
-                ->label('Aynı reklam tekrar bekleme saati')
+                ->label('Ayni reklam tekrar bekleme saati')
                 ->numeric()
                 ->minValue(1)
                 ->required(),
@@ -106,7 +106,7 @@ class FacebookAutomationSettingResource extends Resource
                 TextColumn::make('page_id')->label('Page ID')->placeholder('-'),
                 TextColumn::make('check_interval_minutes')->label('Kontrol dk'),
                 TextColumn::make('max_comments_per_hour')->label('Saatlik limit'),
-                TextColumn::make('max_comments_per_day')->label('Günlük limit'),
+                TextColumn::make('max_comments_per_day')->label('Gunluk limit'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
