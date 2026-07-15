@@ -32,6 +32,30 @@ Laravel tabanlı vatandaş itirazı, ihbar ve kamuya açık yayın/moderasyon pl
 - Editör/hukuk onayı olmadan yayınlamayı engelleyen model koruması.
 - Kamuya açık metin için ayrı `public_body` alanı.
 
+## Facebook Reklam Otomasyonu
+
+Admin panelde `Reklam Otomasyonu` grubu altında üç ekran bulunur:
+
+- `Facebook Reklamları`: yorum metni, link, görsel URL ve aktif/pasif reklam havuzu.
+- `Facebook Ayarları`: Haberler KKTC sayfası, frekans limitleri, gecikme aralığı ve onaylı çalışma modu.
+- `Facebook Yorum Logları`: hangi post için hangi reklamın planlandığı/gönderildiği/hata aldığı.
+
+Otomasyon varsayılan olarak kapalı ve onay gerektirir. Meta Graph API tokenları bağlanmadan canlı yorum göndermez.
+
+Gerekli Meta bilgileri:
+
+- Haberler KKTC Facebook Page ID
+- Meta Developer App ID ve App Secret
+- Uzun ömürlü Page Access Token
+- Sayfa postlarını okuma ve sayfa adına yorum/etkileşim yönetme izinleri
+- Webhook kullanacaksak webhook callback URL ve verify token
+
+Manuel test komutu:
+
+```bash
+php artisan facebook:queue-comment FACEBOOK_POST_ID
+```
+
 ## Local Kurulum
 
 ```bash

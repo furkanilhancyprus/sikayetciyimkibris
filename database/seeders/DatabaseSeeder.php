@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RoleSeeder::class);
         $this->call(PlatformReferenceSeeder::class);
+        $this->call(FacebookAutomationSeeder::class);
         $this->call(AdminUserSeeder::class);
     }
 }
